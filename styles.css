@@ -452,6 +452,80 @@ p { color: var(--muted); }
 .footer-legal { display: flex; gap: 22px; }
 .footer-legal a:hover { color: var(--ink); }
 
+/* ---------- anchor offset under sticky nav ---------- */
+[id] { scroll-margin-top: 92px; }
+
+/* ---------- services page ---------- */
+.page-hero { padding: 54px 0 26px; text-align: center; }
+.page-hero .pill { margin-bottom: 22px; }
+.page-hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.6rem); max-width: 780px; margin: 0 auto 20px; }
+.page-hero h1 em { white-space: nowrap; }
+.page-hero .lede { max-width: 580px; margin: 0 auto 30px; }
+.page-hero .hero-ctas { justify-content: center; margin-bottom: 40px; }
+.jump-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 860px; margin: 0 auto; }
+.jump-list a {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px 8px 10px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg-2); color: var(--muted);
+  font-size: 0.72rem;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.jump-list a .n {
+  font-family: var(--serif); font-size: .72rem;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--sage); color: var(--olive-text);
+  display: grid; place-items: center;
+}
+.jump-list a:hover { border-color: var(--olive); color: var(--ink); background: var(--white); }
+
+.svc-list { padding: 30px 0 30px; }
+.svc {
+  display: grid;
+  grid-template-columns: 0.85fr 1.4fr;
+  gap: 48px;
+  padding: 48px 0;
+  border-top: 1px solid var(--line-2);
+}
+.svc:first-child { border-top: 0; padding-top: 24px; }
+.svc-head { position: sticky; top: 104px; align-self: start; }
+.svc-num {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif); font-size: .92rem;
+  color: var(--muted-2); letter-spacing: .06em;
+  margin-bottom: 18px;
+}
+.svc-num::after { content: ""; width: 28px; height: 1px; background: var(--line); }
+.svc-head .icon-circle { margin-bottom: 18px; }
+.svc-head h2 { text-align: left; font-size: clamp(1.6rem, 2.4vw, 2.15rem); margin-bottom: 12px; }
+.svc-tagline { font-size: .95rem; font-weight: 400; color: var(--ink-2); line-height: 1.6; max-width: 360px; }
+.svc-card {
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-lg);
+  padding: 32px 34px 30px;
+}
+.svc-body { font-size: .9rem; line-height: 1.75; margin-bottom: 24px; }
+.svc-label {
+  font-size: .66rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.svc-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.svc-points li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: .8rem; color: var(--ink-2); line-height: 1.55;
+}
+.svc-points svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; }
+.svc-note {
+  display: flex; align-items: flex-start; gap: 9px;
+  margin-top: 22px; padding: 12px 14px;
+  border-radius: 10px; background: var(--sage);
+  color: var(--olive-text); font-size: .76rem; line-height: 1.55;
+}
+.svc-note svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 2px; }
+.svc-cta-row { padding: 10px 0 30px; text-align: center; }
+.svc-cta-row p { font-size: .9rem; margin-bottom: 18px; }
+
 /* =========================================================
    Responsive
    ========================================================= */
@@ -477,6 +551,9 @@ p { color: var(--muted); }
   .steps { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
   .step:not(:last-child)::before, .step:not(:last-child)::after { display: none; }
   .result-grid { grid-template-columns: 1fr; }
+  .svc { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  .svc-head { position: static; }
+  .svc-tagline { max-width: none; }
   .cta-banner { grid-template-columns: 1fr; padding: 32px 26px; }
   .cta-copy h2 { text-align: center; }
   .cta-copy p { text-align: center; }
@@ -498,6 +575,9 @@ p { color: var(--muted); }
   .service-grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr; }
   .cta-card { grid-template-columns: 1fr; }
+  .svc-points { grid-template-columns: 1fr; }
+  .svc-card { padding: 24px 20px; }
+  .page-hero .hero-ctas { flex-direction: column; gap: 14px; }
   .cta-card-img { min-height: 160px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
   .footer-brand { grid-column: 1 / -1; }
