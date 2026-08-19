@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
 
@@ -27,9 +27,9 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#top" class="active" aria-current="page">Home</a>
         <a href="services.html">Services</a>
+        <a href="roadmap.html">Roadmap</a>
         <a href="#results">Case Studies</a>
         <a href="#resources">Resources</a>
-        <a href="#about">About</a>
       </nav>
 
       <div class="nav-actions">
@@ -69,15 +69,15 @@
 
           <div class="stat-card stat-1">
             <span class="stat-label">Organic Traffic</span>
-            <span class="stat-value">+162%</span>
+            <span class="stat-value"><span class="count" data-to="162" data-prefix="+" data-suffix="%">+162%</span></span>
             <svg class="stat-chart" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="0,32 14,26 28,29 42,20 56,23 70,13 84,10 100,3" fill="none" stroke="#5B6B4A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+              <polyline pathLength="1" points="0,32 14,26 28,29 42,20 56,23 70,13 84,10 100,3" fill="none" stroke="#5B6B4A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
             </svg>
           </div>
 
           <div class="stat-card stat-2">
             <span class="stat-label">Keyword Rankings</span>
-            <span class="stat-value">245 <span class="up">↑</span></span>
+            <span class="stat-value"><span class="count" data-to="245">245</span> <span class="up">↑</span></span>
             <svg class="stat-chart bars" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
               <g fill="#7C8A6A">
                 <rect x="2"  y="30" width="6" height="10"/>
@@ -95,9 +95,9 @@
 
           <div class="stat-card stat-3">
             <span class="stat-label">Backlinks</span>
-            <span class="stat-value">3.2K <span class="up">↑</span></span>
+            <span class="stat-value"><span class="count" data-to="3.2" data-decimals="1" data-suffix="K">3.2K</span> <span class="up">↑</span></span>
             <svg class="stat-chart" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="0,34 16,30 32,32 48,22 64,25 80,12 100,6" fill="none" stroke="#5B6B4A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+              <polyline pathLength="1" points="0,34 16,30 32,32 48,22 64,25 80,12 100,6" fill="none" stroke="#5B6B4A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
             </svg>
           </div>
          </div>
@@ -298,7 +298,7 @@
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" id="about">
+  <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="#top" class="brand">
@@ -308,11 +308,6 @@
           <span class="brand-name">Routly</span>
         </a>
         <p>We help businesses rank higher on Google and grow through data-driven SEO strategies.</p>
-        <div class="socials">
-          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10M6 5.5v.01M10 19v-6a3 3 0 0 1 6 0v6M10 9v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16.8" cy="7.2" r=".9" fill="currentColor"/></svg></a>
-        </div>
       </div>
 
       <div class="footer-col">
@@ -328,11 +323,10 @@
 
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="#about">About Us</a>
         <a href="#process">Our Process</a>
+        <a href="roadmap.html">Roadmap</a>
         <a href="#results">Case Studies</a>
         <a href="#resources">Blog</a>
-        <a href="#about">Careers</a>
       </div>
 
       <div class="footer-col" id="resources">
@@ -361,5 +355,30 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var nodes = document.querySelectorAll('.stat-card .count');
+      if (!nodes.length || reduce) return;
+      function ease(t) { return 1 - Math.pow(1 - t, 3); }
+      Array.prototype.forEach.call(nodes, function (el, i) {
+        var to = parseFloat(el.getAttribute('data-to'));
+        var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var pre = el.getAttribute('data-prefix') || '';
+        var suf = el.getAttribute('data-suffix') || '';
+        var dur = 1400, delay = 350 + i * 220, start = null;
+        el.textContent = pre + (0).toFixed(dec) + suf;
+        function tick(ts) {
+          if (start === null) start = ts;
+          var p = Math.min(1, (ts - start) / dur);
+          el.textContent = pre + (to * ease(p)).toFixed(dec) + suf;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        setTimeout(function () { requestAnimationFrame(tick); }, delay);
+      });
+    })();
+  </script>
 </body>
 </html>
