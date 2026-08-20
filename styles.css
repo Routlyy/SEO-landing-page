@@ -159,11 +159,19 @@ p { color: var(--muted); }
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(180deg, rgba(245,243,238,.6) 0%, rgba(245,243,238,.42) 30%, rgba(245,243,238,.42) 62%, rgba(245,243,238,.88) 90%, var(--bg) 100%),
-    url("assets/hero-bg.webp") center / cover no-repeat;
+    linear-gradient(180deg, rgba(245,243,238,.3) 0%, rgba(245,243,238,.1) 28%, rgba(245,243,238,.08) 62%, rgba(245,243,238,.66) 92%, var(--bg) 100%),
+    linear-gradient(90deg, rgba(245,243,238,0) 4%, rgba(245,243,238,.3) 22%, rgba(245,243,238,.26) 42%, rgba(245,243,238,0) 62%),
+    url("assets/hero-bg.webp") right 38% / 112% auto no-repeat;
   pointer-events: none;
 }
 .home-hero > .container { position: relative; z-index: 1; }
+@media (max-width: 960px) {
+  .home-hero::before {
+    background:
+      linear-gradient(180deg, rgba(245,243,238,.42) 0%, rgba(245,243,238,.24) 28%, rgba(245,243,238,.22) 62%, rgba(245,243,238,.7) 92%, var(--bg) 100%),
+      url("assets/hero-bg.webp") center / cover no-repeat;
+  }
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -332,7 +340,20 @@ p { color: var(--muted); }
 .logo.herbalix { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; }
 
 /* ---------- problem (position map) ---------- */
-.problem { padding: 30px 0 70px; }
+.problem { padding: 30px 0 70px; position: relative; }
+.problem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 900px 620px at 78% 32%, rgba(154,175,120,.2), transparent 65%),
+    radial-gradient(ellipse 760px 540px at 24% 88%, rgba(183,199,152,.22), transparent 70%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'600'%20height%3D'600'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23aeb996'%20stroke-width%3D'1.2'%20opacity%3D'.4'%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'100'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'158'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'216'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'274'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'332'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'390'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'448'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'506'%2F%3E%3Ccircle%20cx%3D'-60'%20cy%3D'-60'%20r%3D'564'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat -70px -70px,
+    linear-gradient(180deg, var(--bg) 0%, #EFF2E5 30%, #EBEFDF 62%, var(--bg) 100%);
+}
+.problem > .container { position: relative; z-index: 1; }
 .pm-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
