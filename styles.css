@@ -152,6 +152,7 @@ p { color: var(--muted); }
   position: relative;
   margin-top: -78px;
   padding-top: calc(42px + 78px);
+  padding-bottom: 110px;
 }
 .home-hero::before {
   content: "";
@@ -161,7 +162,7 @@ p { color: var(--muted); }
   background:
     linear-gradient(180deg, rgba(245,243,238,.3) 0%, rgba(245,243,238,.1) 28%, rgba(245,243,238,.08) 58%, rgba(245,243,238,.5) 84%, var(--bg) 100%),
     linear-gradient(90deg, rgba(245,243,238,0) 4%, rgba(245,243,238,.3) 22%, rgba(245,243,238,.26) 42%, rgba(245,243,238,0) 62%),
-    url("assets/hero-bg.webp") right 38% / 112% auto no-repeat;
+    url("assets/hero-bg.webp") right 62% / 112% auto no-repeat;
   pointer-events: none;
 }
 .home-hero > .container { position: relative; z-index: 1; }
@@ -301,7 +302,7 @@ p { color: var(--muted); }
 }
 
 /* ---------- logos ---------- */
-.logos { padding: 34px 0 60px; }
+.logos { padding: 16px 0 60px; }
 .logos .eyebrow { margin-bottom: 26px; }
 .logo-marquee {
   overflow: hidden;
