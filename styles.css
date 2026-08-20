@@ -146,6 +146,24 @@ p { color: var(--muted); }
 
 /* ---------- hero ---------- */
 .hero { padding: 42px 0 60px; }
+
+/* ---------- home hero backdrop ---------- */
+.home-hero {
+  position: relative;
+  margin-top: -78px;
+  padding-top: calc(42px + 78px);
+}
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(245,243,238,.6) 0%, rgba(245,243,238,.42) 30%, rgba(245,243,238,.42) 62%, rgba(245,243,238,.88) 90%, var(--bg) 100%),
+    url("assets/hero-bg.webp") center / cover no-repeat;
+  pointer-events: none;
+}
+.home-hero > .container { position: relative; z-index: 1; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
