@@ -1311,6 +1311,11 @@ html:not(.js) .rm-track::before {
   .nav-inner { height: 66px; }
   .nav-login { display: none; }
   .hero { padding-top: 24px; }
+  .home-hero { padding-top: calc(24px + 78px); }
+  .svc-hero { padding-top: calc(24px + 78px); }
+  .nav-actions { gap: 10px; }
+  .nav-actions .btn-sm { padding: 9px 12px; font-size: 12px; }
+  .brand-name { font-size: 1.15rem; }
   .hero-ctas { flex-direction: column; gap: 14px; }
   .hero-stage { width: min(100%, 300px); margin-left: 40px; }
   .hero-arch { height: 480px; border-radius: 150px 150px 22px 22px; }
@@ -1381,4 +1386,12 @@ html:not(.js) .rm-track::before {
 @media (max-width: 960px) {
   .svc-hero .hero-copy > *, .svc-hero .trust-bar { opacity: 1; animation: none; }
   .svc-hero-visual picture { opacity: 1; animation: visual-float 7s ease-in-out 1.1s infinite; }
+}
+
+/* Very small screens: logo mark only, compact nav CTA (long LT label) */
+@media (max-width: 480px) {
+  .nav .brand-name { display: none; }
+  .nav-actions .btn-sm .arrow { display: none; }
+  .nav-actions .btn-sm { padding: 9px 11px; }
+  .lang-switch a { padding: 5px 9px; }
 }
